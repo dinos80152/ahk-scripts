@@ -1,6 +1,6 @@
 Run mspaint.exe
 
-WinWaitActive, 未命名 - 小畫家
+WinWaitActive, % "未命名 - 小畫家"
 
 startWidthPosition = 50
 startHeightPosition = 200
