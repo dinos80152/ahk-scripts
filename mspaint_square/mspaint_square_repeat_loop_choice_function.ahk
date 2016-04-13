@@ -1,30 +1,20 @@
 Run mspaint.exe, , max
 
-WinWaitActive, 未命名 - 小畫家
+WinWaitActive, % "未命名 - 小畫家"
 
-startWidthPosition = 50
-startHeightPosition = 200
+startXPosition := 50
+startYPosition := 200
 
-width = 400
-height = 300
-spacing = 40
+width := 400
+height := 300
+spacing := 40
 
-Loop {
+Loop {    
 
-    drawRightHorizontal(startWidthPosition, startHeightPosition, width)
+    drawSquare(startXPosition, startYPosition, width, height)
 
-    MouseGetPos, x, y
-    drawDownVertical(x, y, height)
-
-    MouseGetPos, x, y
-    drawLeftHorizontal(x, y, width)
-
-    MouseGetPos, x, y
-    drawUpVertical(x, y, height)
-
-    startHeightPosition := startHeightPosition + spacing
-    startWidthPosition := startWidthPosition + spacing
-
+    startXPosition := startXPosition + spacing
+    startYPosition := startYPosition + spacing
     width := width - spacing * 2
     height := height - spacing * 2
 
@@ -34,21 +24,13 @@ Loop {
 }
 
 MsgBox, 完成。
+Return
 
-drawRightHorizontal(startX, startY, width) {
-    MouseClickDrag Left, startX, startY, startX + width, startY, 10
+drawSquare(x, y, width, height) {
+    MouseClick, Left, x, y, , 20, D
+    MouseMove, x + width, y, 20
+    MouseMove, x + width, y + height, 20
+    MouseMove, x, y + height, 20
+    MouseMove, x, y, 20
+    MouseClick, Left, , , , , U
 }
-
-drawLeftHorizontal(startX, startY, width) {
-    MouseClickDrag Left, startX, startY, startX - width, startY, 10
-}
-
-drawUpVertical(startX, startY, height) {
-    MouseClickDrag Left, startX, startY, startX, startY - height, 10
-}
-
-drawDownVertical(startX, startY, height) {
-    MouseClickDrag Left, startX, startY, startX, startY + height, 10
-}
-
-

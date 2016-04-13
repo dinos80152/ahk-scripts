@@ -1,25 +1,24 @@
 Run mspaint.exe, , max
 
-WinWaitActive, 未命名 - 小畫家
+WinWaitActive, % "未命名 - 小畫家"
 
-startWidthPosition = 50
-startHeightPosition = 200
+startXPosition = 50
+startYPosition = 200
 width = 400
 height = 300
 spacing = 40
 
-Loop 5 {
+Loop 3 {    
 
-    endWidthPosition := startWidthPosition + width
-    endHeightPosition := startHeightPosition + height
+    MouseClick, Left, startXPosition, startYPosition, , 20, D
+    MouseMove, startXPosition + width, startYPosition, 20
+    MouseMove, startXPosition + width, startYPosition + height, 20
+    MouseMove, startXPosition, startYPosition + height, 20
+    MouseMove, startXPosition, startYPosition, 20
+    MouseClick, Left, , , , , U
 
-    MouseClickDrag Left, startWidthPosition, startHeightPosition, endWidthPosition, startHeightPosition, 10
-    MouseClickDrag Left, endWidthPosition, startHeightPosition, endWidthPosition, endHeightPosition, 10
-    MouseClickDrag Left, endWidthPosition, endHeightPosition, startWidthPosition, endHeightPosition, 10
-    MouseClickDrag Left, startWidthPosition, endHeightPosition, startWidthPosition, startHeightPosition, 10
-
-    startWidthPosition := startWidthPosition + spacing
-    startHeightPosition := startHeightPosition + spacing
+    startXPosition := startXPosition + spacing
+    startYPosition := startYPosition + spacing
     width := width - spacing * 2
     height := height - spacing * 2
 }
