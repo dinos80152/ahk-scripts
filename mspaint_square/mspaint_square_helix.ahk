@@ -1,16 +1,16 @@
 Run mspaint.exe, , max
 
-WinWaitActive, 未命名 - 小畫家
+WinWaitActive, % "未命名 - 小畫家"
 
-startWidthPosition = 50
-startHeightPosition = 200
+startXPosition = 50
+startYPosition = 200
 
 width = 400
 height = 300
 spacing = 20
 
-x := startWidthPosition
-y := startHeightPosition
+x := startXPosition
+y := startYPosition
 direction = true
 
 Loop {
@@ -59,5 +59,3 @@ drawUpVertical(startX, startY, height) {
 drawDownVertical(startX, startY, height) {
     MouseClickDrag Left, startX, startY, startX, startY + height, 10
 }
-
-

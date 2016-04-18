@@ -2,14 +2,16 @@ Run mspaint.exe
 
 WinWaitActive, % "未命名 - 小畫家"
 
-startWidthPosition = 50
-startHeightPosition = 200
+startXPosition = 50
+startYPosition = 200
 width = 400
 height = 300
 
-MouseClickDrag Left, startWidthPosition, startHeightPosition, startWidthPosition + width, startHeightPosition, 20
-MouseClickDrag Left, startWidthPosition + width, startHeightPosition, startWidthPosition + width, startHeightPosition + height, 20
-MouseClickDrag Left, startWidthPosition + width, startHeightPosition + height, startWidthPosition, startHeightPosition + height, 20
-MouseClickDrag Left, startWidthPosition, startHeightPosition + height, startWidthPosition, startHeightPosition, 20
+MouseClick, Left, startXPosition, startYPosition, , 20, D
+MouseMove, startXPosition + width, startYPosition, 20
+MouseMove, startXPosition + width, startYPosition + height, 20
+MouseMove, startXPosition, startYPosition + height, 20
+MouseMove, startXPosition, startYPosition, 20
+MouseClick, Left, , , , , U
 
 MsgBox, 完成。
